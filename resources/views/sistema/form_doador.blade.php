@@ -15,7 +15,6 @@
                     <form action="{{ route('doador.atualizar', $doador->id) }}" method="post">
                         {{ method_field('put"') }}
                 @else
-
                 <form action="{{ route('doador.salvar') }}" method="post">
                 @endif
                 {{ csrf_field() }}
