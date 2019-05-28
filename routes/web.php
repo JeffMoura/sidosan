@@ -11,7 +11,6 @@
 |
 */
 
-
   Route::get('/', 'DoadorController@principal');
 //  Route::get('/', ['as'=>'admin.index', 'uses'=>'doadorController@principal']);
 
