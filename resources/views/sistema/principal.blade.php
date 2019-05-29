@@ -8,7 +8,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                                <h3> Entre no Sistema! </h3>
+                                <h3> Entre no Sistema </h3>
                                 <a class="btn btn-secondary" href="{{ route('doador.listar') }}">Entrar</a>
                         </div>
                     </div>
