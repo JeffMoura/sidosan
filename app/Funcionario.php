@@ -4,15 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Doador extends Model
+class Funcionario extends Model
 {
     public $timestamps = false;
-    protected $table = 'doadores';
-    protected $fillable = [ 'id','nome', 'data_nascimento', 'tipo_sanguineo', 'email','telefone','endereco'];
+    protected $table = 'funcionarios';
+    protected $fillable = [ 'id','nome', 'data_admissao', 'telefone','email'];
 
     public function agendamento()
     {
         return $this->hasMany('App\Agendamento');
     }
-
 }

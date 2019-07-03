@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SidosanTable extends Migration
+class TableDoador extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class SidosanTable extends Migration
     public function up()
     {
         //TABELA DE CADASTRO DO DOADOR
-       Schema::create('doador', function(Blueprint $table) {
+       Schema::create('doadores', function(Blueprint $table) {
         $table->engine = 'InnoDB';
 
         $table->increments('id');
@@ -25,6 +25,7 @@ class SidosanTable extends Migration
         $table->string('telefone', 100)->nullable();
         $table->string('endereco', 255)->nullable();
     });
+
     }
 
     /**
@@ -34,6 +35,6 @@ class SidosanTable extends Migration
      */
     public function down()
     {
-        Schema::drop('doador');
+        Schema::drop('doadores');
     }
 }

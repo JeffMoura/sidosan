@@ -6,7 +6,8 @@
         </div>
         <div class="content">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
                     <!-- ./ notificacao -->
@@ -21,12 +22,16 @@
                             </div>
                         @endif
                     <div class="row">
-                    <div class="col-md-9">
-                        <h5 class="card-title"> Todos os Doadores</h5>
+                    <div class="col-md-8">
+                        <h5 class="card-title"> Todos os Funcionários</h5>
                     </div>
-                    <div class="col-md-3">
-                            <div class="panel-heading"><a href="{{ route('doador.inserir') }}" class="btn btn-info btn-sm pull-right"><i class="fa fa-plus"></i> INSERIR NOVO</a></div>
+                    <div class="col-md-2">
+                            <div class="panel-heading"><a href="{{ route('principal') }}" class="btn btn-secondary btn-sm pull-right"><i class="fa fa-plus"></i> VOLTAR</a></div>
                     </div>
+                    <div class="col-md-2">
+                            <div class="panel-heading"><a href="{{ route('agendamento.inserir') }}" class="btn btn-info btn-sm pull-right"><i class="fa fa-plus"></i> INSERIR NOVO</a></div>
+                    </div>
+
                 </div>
                 </div>
                 <div class="card-body">
@@ -35,28 +40,28 @@
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th>Nome</th>
-                            <th>Nascimento</th>
-                            <th>Tipo Sang.</th>
-                            <th>Telefone</th>
+                            <th>Data</th>
+                            <th>Horário</th>
+                            <th>Doador</th>
+                            <th>Funcionário</th>
                             <th>Opções</th>
                         </tr>
                     <tbody>
-                            @forelse ($doador as $doadores)
+                            @forelse ($agendamento as $agendamentos)
                             <tr>
-                                <td> {{$doadores->id}} </td>
-                                <td> {{$doadores->nome}} </td>
-                                <td> {{$doadores->data_nascimento}} </td>
-                                <td> {{$doadores->tipo_sanguineo}} </td>
-                                <td> {{$doadores->telefone}} </td>
+                                <td> {{$agendamentos->id}} </td>
+                                <td> {{date('d/m/Y', strtotime($agendamentos->data))}} </td>
+                                <td> {{$agendamentos->hora}} </td>
+                                <td> {{$agendamentos->doador->nome}} </td>
+                                <td> {{$agendamentos->funcionario->nome}} </td>
                                 <td>
-                                    <a class="btn btn-secondary" href="{{ route('doador.excluir', $doadores->id) }}">Excluir</a>
-                                    <a class="btn btn-secondary" href="{{ route('doador.editar', $doadores->id) }}">Editar</a>
+                                    <a class="btn btn-danger" href="{{ route('agendamento.excluir', $agendamentos->id) }}">Excluir</a>
+                                    <a class="btn btn-info" href="{{ route('agendamento.editar', $agendamentos->id) }}">Editar</a>
                                 </td>
                             </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5">Sem doadores cadastrados.</td>
+                                    <td colspan="5">Sem funcionários cadastrados.</td>
                                 </tr>
                             @endforelse
                     </tbody>

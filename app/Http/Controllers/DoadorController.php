@@ -11,18 +11,18 @@ class DoadorController extends Controller
         return view('sistema.principal');
     }
 
-    public function inserir(Request $request){
-        return view('sistema.form_doador');
+    public function inserir(){
+        return view('sistema.doador.form_doador');
     }
 
     public function listar(){
         $dados = Doador::all();
-        return view('sistema.doador')->with('doador', $dados);
+        return view('sistema.doador.doador')->with('doador', $dados);
     }
 
     public function editar($id){
         $edita = Doador::find($id);
-        return view('sistema.form_editadoador')->with('doador', $edita);
+        return view('sistema.doador.form_editadoador')->with('doador', $edita);
     }
 
     public function excluir($id)
@@ -57,13 +57,13 @@ class DoadorController extends Controller
         return redirect()->route('doador.listar');
     }
 
-    public function atualizar(Request $request, Doador $doador){
+    public function atualizar(Request $request){
         Doador::find($request->id)->update($request->input());
         \Session::flash('alerta', array(
             'class' =>  'success',
             'mensagem' => 'Doador atualizado com sucesso!'
         ));
 
-        return redirect()->route('doador.listar', $doador->id);
+        return redirect()->route('doador.listar');
     }
 }

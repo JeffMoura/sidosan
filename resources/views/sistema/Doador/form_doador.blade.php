@@ -5,8 +5,7 @@
       </div>
       <div class="content">
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8">
+          <div class="col-md-12">
             <div class="card">
               <div class="card-header"> <h5> <b>{{ isset($doador) ? 'Atualizar' : 'Cadastrar novo' }} </b>  Doador </h5></div>
               <div class="card-body">
