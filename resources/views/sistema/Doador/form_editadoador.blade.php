@@ -29,15 +29,21 @@
                   <div class="row">
                     <div class="col-md-12 prl-1">
                       <div class="form-group has-error">
-                            <input required name="nome" value="{{ $doador->nome}}" type="text" class="form-control input-sm">
+                            <input  name="nome" value="{{ $doador->nome}}" type="text" class="form-control input-sm">
                        </div>
+                       @error('nome')
+                       <div class="alert alert-danger">{{ $message }}</div>
+                       @enderror
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4 pr-1">
                       <div class="form-group has-error">
-                        <input required type="date" name="data_nascimento" class="form-control" value="{{ $doador->data_nascimento}}">
+                        <input  type="date" name="data_nascimento" class="form-control" value="{{ $doador->data_nascimento}}">
                       </div>
+                      @error('data')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="col-md-4 prl-1">
                       <div class="form-group has-error">
@@ -56,20 +62,29 @@
                     </div>
                     <div class="col-md-4 pl-1">
                      <div class="form-group has-error">
-                        <input required type="text" name="telefone" class="form-control" value="{{ $doador->telefone}}">
+                        <input  type="text" name="telefone" class="form-control" value="{{ $doador->telefone}}">
                       </div>
+                      @error('telefone')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 pr-1">
                       <div class="form-group has-error">
-                        <input required type="email" name="email" class="form-control" value="{{ $doador->email}}">
+                        <input  type="email" name="email" class="form-control" value="{{ $doador->email}}">
                       </div>
+                      @error('email')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group has-error">
-                        <input required type="text" name="endereco" class="form-control" value="{{ $doador->endereco}}">
+                        <input  type="text" name="endereco" class="form-control" value="{{ $doador->endereco}}">
                       </div>
+                      @error('endereco')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
 
                   </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Doador;
+use App\Http\Requests\DoadorRequest;
 
 class DoadorController extends Controller
 {
@@ -31,7 +32,7 @@ class DoadorController extends Controller
         return redirect()->route('doador.listar');
     }
 
-    public function salvar(Request $request){
+    public function salvar(DoadorRequest $request){
 
         $nome = $request->input('nome');
         $data_nascimento = $request->input('data_nascimento');
@@ -57,7 +58,7 @@ class DoadorController extends Controller
         return redirect()->route('doador.listar');
     }
 
-    public function atualizar(Request $request){
+    public function atualizar(DoadorRequest $request){
         Doador::find($request->id)->update($request->input());
         \Session::flash('alerta', array(
             'class' =>  'success',

@@ -20,8 +20,11 @@
                   <div class="row">
                     <div class="col-md-12 prl-1">
                       <div class="form-group has-error">
-                            <input required placeholder="Nome" name="nome" value="{{ $funcionario->nome ?? '' }}" type="text" class="form-control input-sm">
+                            <input  placeholder="Nome" name="nome" value="{{ $funcionario->nome ?? '' }}" type="text" class="form-control input-sm">
                        </div>
+                       @error('nome')
+                       <div class="alert alert-danger">{{ $message }}</div>
+                   @enderror
                     </div>
                   </div>
                   <div class="row">
@@ -29,18 +32,27 @@
                       <div class="form-group has-error">
                         <input type="date" name="data_admissao" class="form-control" value="{{ $funcionario->data_admissao ?? '' }}">
                       </div>
+                      @error('data')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                     <div class="col-md-6 pl-1">
                      <div class="form-group has-error">
-                        <input required type="text" name="telefone" class="form-control" placeholder="Telefone" value="{{ $funcionario->telefone ?? '' }}">
+                        <input  type="text" name="telefone" class="form-control" placeholder="Telefone" value="{{ $funcionario->telefone ?? '' }}">
                       </div>
+                      @error('telefone')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12 prl-1">
                       <div class="form-group has-error">
-                        <input required type="email" name="email" class="form-control" placeholder="email" value="{{ $funcionario->email ?? '' }}">
+                        <input  type="email" name="email" class="form-control" placeholder="email" value="{{ $funcionario->email ?? '' }}">
                       </div>
+                      @error('email')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
                   </div>

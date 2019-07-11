@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Funcionario;
+use App\Http\Requests\FuncionarioRequest;
 
 class FuncionarioController extends Controller
 {
@@ -27,7 +28,7 @@ class FuncionarioController extends Controller
         return redirect()->route('funcionario.listar');
     }
 
-    public function salvar(Request $request){
+    public function salvar(FuncionarioRequest $request){
 
         $nome = $request->input('nome');
         $data_admissao = $request->input('data_admissao');
@@ -52,7 +53,7 @@ class FuncionarioController extends Controller
         return redirect()->route('funcionario.listar');
     }
 
-    public function atualizar(Request $request){
+    public function atualizar(FuncionarioRequest $request){
         Funcionario::find($request->id)->update($request->input());
         \Session::flash('alerta', array(
             'class' =>  'success',
